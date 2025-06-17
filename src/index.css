@@ -30,6 +30,16 @@ body {
   --font-staatliches: Staatliches;
 }
 
+@layer base {
+  h1 {
+    @apply font-staatliches text-5xl;
+  }
+
+  p {
+    @apply text-xl;
+  }
+}
+
 @layer components {
   .bar {
     @apply w-full h-1.5 bg-black;

@@ -33,14 +33,9 @@ const About = () => {
         whileInView="animate"
         variants={containerVariants}
       >
-        <motion.h1
-          className="font-staatliches text-5xl"
-          variants={textVariants}
-        >
-          About us
-        </motion.h1>
+        <motion.h1 variants={textVariants}>About us</motion.h1>
 
-        <motion.p className="text-xl" variants={textVariants}>
+        <motion.p variants={textVariants}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias,
           quam ipsam dolores reprehenderit quaerat iure ab vitae enim facilis
           sint nihil sit perspiciatis nulla ullam dignissimos eveniet sed a
