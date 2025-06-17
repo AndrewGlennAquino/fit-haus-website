@@ -28,7 +28,7 @@ const About = () => {
   return (
     <section id="about">
       <motion.div
-        className="min-h-dvh flex flex-col justify-center gap-8"
+        className="min-h-[50dvh] flex flex-col justify-center gap-8"
         initial="initial"
         whileInView="animate"
         variants={containerVariants}
