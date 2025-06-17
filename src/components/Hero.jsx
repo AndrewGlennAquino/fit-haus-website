@@ -8,7 +8,7 @@ const Hero = () => {
     animate: {
       transition: {
         delayChildren: 0.25,
-        staggerChildren: 0.5,
+        staggerChildren: 0.25,
       },
     },
   };
@@ -29,9 +29,17 @@ const Hero = () => {
 
   return (
     <section
+      id="hero"
       className="w-full min-h-dvh relative flex flex-col justify-center items-end"
     >
-      <video src={tempHeroVideo} playsInline autoPlay muted loop className="w-full h-full absolute inset-0 -z-1 object-cover" />
+      <video
+        src={tempHeroVideo}
+        playsInline
+        autoPlay
+        muted
+        loop
+        className="w-full h-full absolute inset-0 -z-1 object-cover"
+      />
 
       <motion.div
         initial="initial"
@@ -53,6 +61,6 @@ const Hero = () => {
       </motion.div>
     </section>
   );
-}
+};
 
 export default Hero;
