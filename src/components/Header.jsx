@@ -21,7 +21,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-mustard sticky top-0 left-0 right-0 flex justify-between items-center">
+    <header className="bg-mustard fixed top-0 left-0 right-0 z-1 flex justify-between items-center">
       <h1 className="font-staatliches text-5xl flex flex-col justify-center">
         Fit Haus
       </h1>
