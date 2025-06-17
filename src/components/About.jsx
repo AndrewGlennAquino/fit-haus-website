@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 
 const About = () => {
+  // Animation variants for text container
   const containerVariants = {
     initial: {},
     animate: {
