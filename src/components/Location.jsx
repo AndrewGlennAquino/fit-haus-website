@@ -1,56 +1,75 @@
-import { useState, useCallback, memo } from "react";
-import { motion } from "motion/react";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { useRef } from "react";
+import { motion, useInView } from "motion/react";
 
 const Location = () => {
-  const coords = { lat: 19.92, lng: -103.03 };
-  const [map, setMap] = useState(null);
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
-    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
-  });
+  const ref = useRef(null); // ref.current.isInView
 
-  const onLoad = useCallback((m) => {
-    const bounds = new window.google.maps.LatLngBounds(coords);
-    m.fitBounds(bounds);
+  /**
+   * isInView is true if component is in viewprt, otherwise false
+   * store value in ref
+   */
+  const isInView = useInView(ref, { amount: 0.5 });
 
-    setMap(map);
-  }, []);
+  const key = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
-  const onUnmount = useCallback((m) => {
-    setMap(null);
-  }, []);
-
-  const tempContainerStyle = {
-    width: "100dvw",
-    height: "50dvh",
+  // Animation variants for text container
+  const containerVariants = {
+    initial: {},
+    animate: {
+      transition: {
+        delayChildren: 0.05,
+        staggerChildren: 0.05,
+      },
+    },
   };
 
-  return isLoaded ? (
-    <section id="Location">
-      <div className="min-h-[50dvh] flex flex-col justify-center">
-        <div>
-          <h1>Location</h1>
-          <p>Calle Vallarta #40, Mazamitla, Jalisco 49500</p>
-          <p>+52 382 688 0013</p>
-          <p>Jorgebarajas0718@yahoo.com</p>
-        </div>
+  // Animation variants for header and text
+  const textVariants = {
+    initial: { opacity: 0, y: 25 },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.15,
+        ease: "easeOut",
+      },
+    },
+  };
 
-        <div className="flex justify-center items-center">
-          <GoogleMap
-            mapContainerStyle={tempContainerStyle}
-            center={coords}
-            onLoad={onLoad}
-            onUnmount={onUnmount}
-          >
-            <></>
-          </GoogleMap>
-        </div>
-      </div>
+  return (
+    <section
+      id="location"
+      ref={ref}
+      className="min-h-50dvh flex flex-col justify-center gap-8"
+    >
+      <motion.div
+        className="flex flex-col justify-center gap-4"
+        initial="initial"
+        animate={isInView ? "animate" : null}
+        variants={containerVariants}
+      >
+        <motion.h1 variants={textVariants}>Location & Contact</motion.h1>
+        <motion.p variants={textVariants}>
+          Calle Vallarta #40, Mazamitla, Mexico
+        </motion.p>
+        <motion.p variants={textVariants}>+52 382 688 0013</motion.p>
+        <motion.p variants={textVariants}>jorgebarajas0718@yahoo.com</motion.p>
+
+        <motion.div
+          className="flex justify-center items-center"
+          variants={textVariants}
+        >
+          <iframe
+            width="100%"
+            height="500"
+            loading="lazy"
+            allowFullScreen
+            src={`https://www.google.com/maps/embed/v1/view?zoom=17&center=19.9143%2C-103.0249&key=${key}`}
+          />
+        </motion.div>
+      </motion.div>
     </section>
-  ) : (
-    <></>
   );
 };
 
-export default memo(Location);
+export default Location;
