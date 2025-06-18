@@ -15,8 +15,8 @@ const About = () => {
     initial: {},
     animate: {
       transition: {
-        delayChildren: 0.15,
-        staggerChildren: 0.15,
+        delayChildren: 0.05,
+        staggerChildren: 0.05,
       },
     },
   };
