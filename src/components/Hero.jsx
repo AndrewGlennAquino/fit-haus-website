@@ -4,9 +4,9 @@ import { motion, useInView } from "motion/react";
 /**
  * Hero component where the video/image, header text, and height are customizeable
  *
- * @param {*} props boolean if src is .mp4, source of video/image, array of strings for header, and component height
+ * @param {*} props boolean if src is .mp4, source of video/image, and array of strings for header
  */
-const Hero = ({ video, src, stringArray, height }) => {
+const Hero = ({ video, src, stringArray }) => {
   const ref = useRef(null); // ref.current.isInView
 
   /**
@@ -45,7 +45,7 @@ const Hero = ({ video, src, stringArray, height }) => {
     <section
       id="hero"
       ref={ref}
-      className={`w-full min-h-[${height}dvh] relative flex flex-col justify-center items-end`}
+      className={`w-full min-h-[100dvh] relative flex flex-col justify-center items-end`}
     >
       <video
         src={src}
@@ -76,7 +76,7 @@ const Hero = ({ video, src, stringArray, height }) => {
     <section
       id="hero"
       ref={ref}
-      className={`w-full min-h-[${height}dvh] relative flex flex-col justify-center items-end`}
+      className={`w-full min-h-[50dvh] relative flex flex-col justify-center items-end`}
     >
       <img
         src={src}
