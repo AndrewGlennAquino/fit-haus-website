@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 
+/**
+ * Header component that contains logo and hamburger navigation menu
+ */
 const Header = () => {
   const [clicked, setClicked] = useState(false); // Store if user clicked in state
 
