@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
 
 /**
  * Header component that contains logo and hamburger navigation menu
@@ -24,13 +25,13 @@ const Header = () => {
   };
 
   return (
-    <header 
+    <header
       id="header"
       className="bg-mustard fixed top-0 left-0 right-0 z-1 flex justify-between items-center"
     >
-      <h1 className="text-4xl flex flex-col justify-center">
-        Fit Haus
-      </h1>
+      <Link to="/">
+        <h1 className="text-4xl flex flex-col justify-center">Fit Haus</h1>
+      </Link>
 
       <motion.nav
         id="hamburger-menu"
