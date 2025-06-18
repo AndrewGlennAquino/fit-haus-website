@@ -18,10 +18,6 @@ body {
   @apply font-barlow;
 }
 
-#root > * {
-  @apply p-4 lg:px-8 lg:py-4;
-}
-
 @theme {
   --color-mustard: rgba(255, 220, 90, 1);
   --color-ghost: rgba(240, 240, 245, 1);
