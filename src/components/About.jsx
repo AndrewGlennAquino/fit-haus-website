@@ -2,8 +2,13 @@ import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 
 const About = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, {amount: 0.5});
+  const ref = useRef(null); // ref.current.isInView
+
+  /**
+   * isInView is true if component is in viewprt, otherwise false
+   * store value in ref
+   */
+  const isInView = useInView(ref, { amount: 0.5 });
 
   // Animation variants for text container
   const containerVariants = {

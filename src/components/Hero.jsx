@@ -3,7 +3,12 @@ import { motion, useInView } from "motion/react";
 import tempHeroVideo from "../assets/videos/temp-hero-video.mp4";
 
 const Hero = () => {
-  const ref = useRef(null);
+  const ref = useRef(null); // ref.current.isInView
+
+  /**
+   * isInView is true if component is in viewprt, otherwise false
+   * store value in ref
+   */
   const isInView = useInView(ref, { once: true });
 
   // Animation variants for header container
