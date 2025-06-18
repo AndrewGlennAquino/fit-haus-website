@@ -27,7 +27,7 @@ const Header = () => {
   return (
     <header
       id="header"
-      className="bg-mustard sticky top-0 left-0 right-0 z-1 flex justify-between items-center"
+      className="bg-mustard p-default flex justify-between items-center sticky top-0 left-0 right-0 z-1"
     >
       <motion.div
         initial={false}

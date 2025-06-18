@@ -45,7 +45,7 @@ const Hero = ({ video, src, stringArray }) => {
     <section
       id="hero"
       ref={ref}
-      className={`w-full min-h-[100dvh] relative flex flex-col justify-center items-end`}
+      className={`w-full min-h-[100dvh] p-default flex flex-col justify-center items-end relative`}
     >
       <video
         src={src}
@@ -76,7 +76,7 @@ const Hero = ({ video, src, stringArray }) => {
     <section
       id="hero"
       ref={ref}
-      className={`w-full min-h-[50dvh] relative flex flex-col justify-center items-end`}
+      className={`w-full min-h-[50dvh] p-default flex flex-col justify-center items-end relative`}
     >
       <img
         src={src}

@@ -47,4 +47,8 @@ body {
   .hero-header {
     @apply font-staatliches text-mustard text-8xl sm:text-9xl whitespace-nowrap;
   }
+
+  .p-default {
+    @apply p-4 lg:px-8 lg:py-4;
+  }
 }

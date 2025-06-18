@@ -40,7 +40,7 @@ const Location = () => {
     <section
       id="location"
       ref={ref}
-      className="min-h-50dvh flex flex-col justify-center gap-8"
+      className="min-h-50dvh p-default flex flex-col justify-center gap-8"
     >
       <motion.div
         className="flex flex-col justify-center gap-4"
