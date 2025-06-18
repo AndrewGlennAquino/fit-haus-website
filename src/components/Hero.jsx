@@ -1,8 +1,12 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import tempHeroVideo from "../assets/videos/temp-hero-video.mp4";
 
-const Hero = () => {
+/**
+ * Hero component where the video, header text, and height are customizeable
+ * 
+ * @param {*} props video source, array of strings for header, and height for video
+ */
+const Hero = ({ video, stringArray, height }) => {
   const ref = useRef(null); // ref.current.isInView
 
   /**
@@ -24,9 +28,10 @@ const Hero = () => {
 
   // Animation variants for header text
   const headerVariants = {
-    initial: { opacity: 0, y: 150, scale: 0.25 },
+    initial: { opacity: 0, x: 150, y: 150, scale: 0.25 },
     animate: {
       opacity: 1,
+      x: 0,
       y: 0,
       scale: 1,
       transition: {
@@ -40,10 +45,10 @@ const Hero = () => {
     <section
       id="hero"
       ref={ref}
-      className="w-full min-h-dvh relative flex flex-col justify-center items-end"
+      className={`w-full min-h-[${height}dvh] relative flex flex-col justify-center items-end`}
     >
       <video
-        src={tempHeroVideo}
+        src={video}
         playsInline
         autoPlay
         muted
@@ -56,18 +61,15 @@ const Hero = () => {
         animate={isInView ? "animate" : null}
         variants={headerContainerVariants}
       >
-        <motion.h1
-          className="hero-header text-shadow"
-          variants={headerVariants}
-        >
-          La Casa
-        </motion.h1>
-        <motion.h1
-          className="hero-header text-shadow"
-          variants={headerVariants}
-        >
-          De Todos
-        </motion.h1>
+        {stringArray.map((string) => (
+          <motion.h1
+            key={string}
+            className="hero-header text-shadow"
+            variants={headerVariants}
+          >
+            {string}
+          </motion.h1>
+        ))}
       </motion.div>
     </section>
   );
