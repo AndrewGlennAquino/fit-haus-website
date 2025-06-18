@@ -1,6 +1,10 @@
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { motion, useInView } from "motion/react";
 
 const About = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, {amount: 0.5});
+
   // Animation variants for text container
   const containerVariants = {
     initial: {},
@@ -26,11 +30,11 @@ const About = () => {
   };
 
   return (
-    <section id="about">
+    <section id="about" ref={ref}>
       <motion.div
         className="min-h-[50dvh] flex flex-col justify-center gap-8"
         initial="initial"
-        whileInView="animate"
+        animate={isInView ? "animate" : null}
         variants={containerVariants}
       >
         <motion.h1 variants={textVariants}>About us</motion.h1>

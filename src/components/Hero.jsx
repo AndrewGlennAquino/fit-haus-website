@@ -1,7 +1,11 @@
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { motion, useInView } from "motion/react";
 import tempHeroVideo from "../assets/videos/temp-hero-video.mp4";
 
 const Hero = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   // Animation variants for header container
   const headerContainerVariants = {
     initial: {},
@@ -15,7 +19,7 @@ const Hero = () => {
 
   // Animation variants for header text
   const headerVariants = {
-    initial: { opacity: 0, y: 250, scale: 1.25 },
+    initial: { opacity: 0, y: 150, scale: 0.25 },
     animate: {
       opacity: 1,
       y: 0,
@@ -30,6 +34,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
+      ref={ref}
       className="w-full min-h-dvh relative flex flex-col justify-center items-end"
     >
       <video
@@ -43,7 +48,7 @@ const Hero = () => {
 
       <motion.div
         initial="initial"
-        whileInView="animate"
+        animate={isInView ? "animate" : null}
         variants={headerContainerVariants}
       >
         <motion.h1
