@@ -2,11 +2,11 @@ import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 
 /**
- * Hero component where the video, header text, and height are customizeable
- * 
- * @param {*} props video source, array of strings for header, and height for video
+ * Hero component where the video/image, header text, and height are customizeable
+ *
+ * @param {*} props boolean if src is .mp4, source of video/image, array of strings for header, and component height
  */
-const Hero = ({ video, stringArray, height }) => {
+const Hero = ({ video, src, stringArray, height }) => {
   const ref = useRef(null); // ref.current.isInView
 
   /**
@@ -41,18 +41,45 @@ const Hero = ({ video, stringArray, height }) => {
     },
   };
 
-  return (
+  return video ? (
     <section
       id="hero"
       ref={ref}
       className={`w-full min-h-[${height}dvh] relative flex flex-col justify-center items-end`}
     >
       <video
-        src={video}
+        src={src}
         playsInline
         autoPlay
         muted
         loop
+        className="w-full h-full absolute inset-0 -z-1 object-cover"
+      />
+
+      <motion.div
+        initial="initial"
+        animate={isInView ? "animate" : null}
+        variants={headerContainerVariants}
+      >
+        {stringArray.map((string) => (
+          <motion.h1
+            key={string}
+            className="hero-header text-shadow"
+            variants={headerVariants}
+          >
+            {string}
+          </motion.h1>
+        ))}
+      </motion.div>
+    </section>
+  ) : (
+    <section
+      id="hero"
+      ref={ref}
+      className={`w-full min-h-[${height}dvh] relative flex flex-col justify-center items-end`}
+    >
+      <img
+        src={src}
         className="w-full h-full absolute inset-0 -z-1 object-cover"
       />
 
