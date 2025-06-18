@@ -29,7 +29,11 @@ const Header = () => {
       id="header"
       className="bg-mustard sticky top-0 left-0 right-0 z-1 flex justify-between items-center"
     >
-      <motion.div initial={false} whileHover={{ scale: 1.25 }} whileTap={{ scale: 1.25 }}>
+      <motion.div
+        initial={false}
+        whileHover={{ scale: 1.25 }}
+        whileTap={{ scale: 1.25 }}
+      >
         <Link to="/">
           <h1 className="text-4xl flex flex-col justify-center">Fit Haus</h1>
         </Link>
