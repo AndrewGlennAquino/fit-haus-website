@@ -27,7 +27,7 @@ const Header = () => {
   return (
     <header
       id="header"
-      className="bg-mustard fixed top-0 left-0 right-0 z-1 flex justify-between items-center"
+      className="bg-mustard sticky top-0 left-0 right-0 z-1 flex justify-between items-center"
     >
       <Link to="/">
         <h1 className="text-4xl flex flex-col justify-center">Fit Haus</h1>
