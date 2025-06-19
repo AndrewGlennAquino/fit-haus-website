@@ -64,7 +64,7 @@ const Location = () => {
             height="500"
             loading="lazy"
             allowFullScreen
-            src={`https://www.google.com/maps/embed/v1/view?zoom=17&center=19.9143%2C-103.0249&key=${key}`}
+            src={`https://www.google.com/maps/embed/v1/view?zoom=19&center=19.9143%2C-103.0249&key=${key}`}
           />
         </motion.div>
       </motion.div>
