@@ -19,7 +19,7 @@ const ScrollToTop = () => {
 };
 
 /**
- * Helper component that triggers on route change
+ * Helper component that triggers animation on route change
  */
 const PageTransition = ({ children }) => {
   return (
