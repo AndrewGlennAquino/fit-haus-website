@@ -20,7 +20,7 @@ const Hero = ({ video, src, stringArray }) => {
     initial: {},
     animate: {
       transition: {
-        delayChildren: 0.25,
+        delayChildren: 0.75,
         staggerChildren: 0.25,
       },
     },
@@ -80,6 +80,7 @@ const Hero = ({ video, src, stringArray }) => {
     >
       <img
         src={src}
+        loading="lazy"
         className="w-full h-full absolute inset-0 -z-1 object-cover"
       />
 
