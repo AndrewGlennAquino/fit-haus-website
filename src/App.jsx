@@ -32,6 +32,7 @@ const PageTransition = ({ children }) => {
         exit={{ x: "100dvw" }}
         transition={{
           duration: 1,
+          delay: 0.25,
           ease: "easeInOut",
         }}
       />
@@ -42,6 +43,7 @@ const PageTransition = ({ children }) => {
         exit={{ x: 0 }}
         transition={{
           duration: 1,
+          delay: 0.25,
           ease: "easeInOut",
         }}
       />
