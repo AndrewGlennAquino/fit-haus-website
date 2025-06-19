@@ -1,30 +1,87 @@
 import { useEffect } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import Home from "./components/Home.jsx";
-import About from "./components/About.jsx";
+import Header from "./components/Header.jsx";
+import Home from "./pages/Home.jsx";
+import About from "./pages/About.jsx";
 
 /**
  * Helper component that scrolls to top of page on route change
  */
-export const ScrollToTop = () => {
-  const { pathname } = useLocation();
+const ScrollToTop = () => {
+  const location = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [location.pathname]);
 
   return null;
-}
+};
+
+/**
+ * Helper component that triggers on route change
+ */
+const PageTransition = ({ children }) => {
+  return (
+    <>
+      {children}
+      <motion.div
+        className="bg-black w-dvw h-dvh fixed z-10 top-0 bottom-0 overflowX-hidden"
+        initial={{ X: 0 }}
+        animate={{ x: "100dvw" }}
+        exit={{ x: "100dvw" }}
+        transition={{
+          duration: 1,
+          ease: "easeInOut",
+        }}
+      />
+      <motion.div
+        className="bg-black w-dvw h-dvh fixed z-10 top-0 bottom-0"
+        initial={{ x: "-100dvw" }}
+        animate={{ x: "-100dvw" }}
+        exit={{ x: 0 }}
+        transition={{
+          duration: 1,
+          ease: "easeInOut",
+        }}
+      />
+    </>
+  );
+};
 
 /**
  * App component that returns all routes
  */
-export const App = () => {
+const App = () => {
+  const location = useLocation();
+
   return (
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/About" element={<About condensed={false} />} />
-      </Routes>
+    <>
+      <Header />
+      <AnimatePresence initial={false} mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route
+            path="/"
+            element={
+              <PageTransition>
+                <ScrollToTop />
+                <Home />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <PageTransition>
+                <ScrollToTop />
+                <About condensed={false} />
+              </PageTransition>
+            }
+          />
+        </Routes>
+      </AnimatePresence>
+    </>
   );
 };
+
+export default App;
