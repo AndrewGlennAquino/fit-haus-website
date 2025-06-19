@@ -11,6 +11,7 @@
 }
 
 body {
+  scroll-behavior: smooth;
   @apply bg-ghost max-w-dvw;
 }
 
