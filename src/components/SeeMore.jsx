@@ -3,19 +3,27 @@ import { Link } from "react-router-dom";
 
 const SeeMore = ({ route }) => {
   return (
-    <motion.div
-      className="w-max"
-      whileHover={{
-        scale: 1.25
-      }}
-      whileTap={{
-        scale: 1.25
-      }}
-    >
-      <Link to={route} className="bg-black text-ghost font-bold p-2 ">
+    <Link to={route} className="font-bold">
+      <motion.div
+        className="link w-max"
+        whileHover={{
+          backgroundColor: "rgba(0, 0, 0, 1)",
+          color: "var(--color-mustard)",
+          transition: {
+            duration: 0.15,
+          },
+        }}
+        whileTap={{
+          backgroundColor: "rgba(0, 0, 0, 1)",
+          color: "var(--color-mustard)",
+          transition: {
+            duration: 0.15,
+          },
+        }}
+      >
         See More
-      </Link>
-    </motion.div>
+      </motion.div>
+    </Link>
   );
 };
 
