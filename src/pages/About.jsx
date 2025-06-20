@@ -117,7 +117,7 @@ const About = () => {
   return (
     <>
       <Hero video={false} src={tempHeroImage} stringArray={["About", "Us"]} />
-      <section id="about" ref={ref} className="p-default">
+      <section id="about" ref={ref} className="bg-ghost p-default">
         <motion.div
           className="min-h-[50dvh] flex flex-col justify-center gap-8"
           initial="initial"

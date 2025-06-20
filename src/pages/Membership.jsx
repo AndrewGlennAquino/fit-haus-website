@@ -117,7 +117,7 @@ const Membership = () => {
   return (
     <>
       <Hero video={false} src={tempHeroImage} stringArray={["Join", "Us"]} />
-      <section id="membership" ref={ref} className="p-default">
+      <section id="membership" ref={ref} className="bg-ghost p-default">
         <motion.div
           className="min-h-[50dvh] flex flex-col justify-center gap-8"
           initial="initial"
