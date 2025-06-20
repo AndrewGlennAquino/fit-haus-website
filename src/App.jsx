@@ -66,7 +66,7 @@ const App = () => {
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route
-            path="/"
+            path="/fit-haus-website/"
             element={
               <PageTransition>
                 <ScrollToTop />
@@ -76,7 +76,7 @@ const App = () => {
             }
           />
           <Route
-            path="/about"
+            path="/fit-haus-website/about"
             element={
               <PageTransition>
                 <ScrollToTop />
@@ -86,7 +86,7 @@ const App = () => {
             }
           />
           <Route
-            path="/services"
+            path="/fit-haus-website/services"
             element={
               <PageTransition>
                 <ScrollToTop />
@@ -96,7 +96,7 @@ const App = () => {
             }
           />
           <Route
-            path="/membership"
+            path="/fit-haus-website/membership"
             element={
               <PageTransition>
                 <ScrollToTop />

@@ -71,7 +71,7 @@ export const AboutCondensed = () => {
         </motion.p>
 
         <motion.div variants={textVariants}>
-          <SeeMore route="/about" />
+          <SeeMore route="/fit-haus-website/about" />
         </motion.div>
       </motion.div>
     </section>

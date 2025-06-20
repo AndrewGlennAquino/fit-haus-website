@@ -71,7 +71,7 @@ export const ServicesCondensed = () => {
         </motion.p>
 
         <motion.div variants={textVariants}>
-          <SeeMore route="/services" />
+          <SeeMore route="/fit-haus-website/services" />
         </motion.div>
       </motion.div>
     </section>

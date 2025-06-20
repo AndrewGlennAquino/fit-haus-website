@@ -46,7 +46,7 @@ const Header = () => {
           whileHover={{ scale: 1.25 }}
           whileTap={{ scale: 1.25 }}
         >
-          <Link to="/">
+          <Link to="/fit-haus-website/">
             <h1 className="text-4xl flex flex-col justify-center">Fit Haus</h1>
           </Link>
         </motion.div>
@@ -99,7 +99,7 @@ const Header = () => {
           }}
         >
           <ul className="flex flex-col items-end gap-12">
-            <Link to="/" className="w-40 text-right" onClick={handleClick}>
+            <Link to="/fit-haus-website/" className="w-40 text-right" onClick={handleClick}>
               <motion.li
                 className="link"
                 whileHover="animate"
@@ -109,7 +109,7 @@ const Header = () => {
                 Home
               </motion.li>
             </Link>
-            <Link to="/about" className="w-40 text-right" onClick={handleClick}>
+            <Link to="/fit-haus-website/about" className="w-40 text-right" onClick={handleClick}>
               <motion.li
                 className="link"
                 whileHover="animate"
@@ -120,7 +120,7 @@ const Header = () => {
               </motion.li>
             </Link>
             <Link
-              to="/services"
+              to="/fit-haus-website/services"
               className="w-40 text-right"
               onClick={handleClick}
             >
@@ -134,7 +134,7 @@ const Header = () => {
               </motion.li>
             </Link>
             <Link
-              to="/membership"
+              to="/fit-haus-website/membership"
               className="w-40 text-right"
               onClick={handleClick}
             >
@@ -148,7 +148,7 @@ const Header = () => {
               </motion.li>
             </Link>
             <Link
-              to="/location"
+              to="/fit-haus-website/location"
               className="w-40 text-right"
               onClick={handleClick}
             >

@@ -71,7 +71,7 @@ export const MembershipCondensed = () => {
         </motion.p>
 
         <motion.div variants={textVariants}>
-          <SeeMore route="/membership" />
+          <SeeMore route="/fit-haus-website/membership" />
         </motion.div>
       </motion.div>
     </section>
