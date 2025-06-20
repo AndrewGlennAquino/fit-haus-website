@@ -1,6 +1,9 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 
+/**
+ * Google maps component for home page
+ */
 const Location = () => {
   const ref = useRef(null); // ref.current.isInView
 
@@ -8,7 +11,7 @@ const Location = () => {
    * isInView is true if component is in viewprt, otherwise false
    * store value in ref
    */
-  const isInView = useInView(ref, { amount: 0.5 });
+  const isInView = useInView(ref, { once: true });
 
   const key = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
@@ -40,7 +43,7 @@ const Location = () => {
     <section
       id="location"
       ref={ref}
-      className="min-h-50dvh p-default flex flex-col justify-center gap-8"
+      className="h-condensed p-default flex flex-col justify-center gap-8"
     >
       <motion.div
         className="flex flex-col justify-center gap-4"
