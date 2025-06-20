@@ -4,6 +4,9 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/Header.jsx";
 import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
+import Services from "./pages/Services.jsx";
+import Membership from "./pages/Membership.jsx";
+import Footer from "./components/Footer.jsx";
 
 /**
  * Helper component that scrolls to top of page on route change
@@ -31,7 +34,7 @@ const PageTransition = ({ children }) => {
         animate={{ x: "100dvw" }}
         exit={{ x: "100dvw" }}
         transition={{
-          duration: 1,
+          duration: 0.5,
           delay: 0.25,
           ease: "easeInOut",
         }}
@@ -42,7 +45,7 @@ const PageTransition = ({ children }) => {
         animate={{ x: "-100dvw" }}
         exit={{ x: 0 }}
         transition={{
-          duration: 1,
+          duration: 0.5,
           delay: 0.25,
           ease: "easeInOut",
         }}
@@ -68,6 +71,7 @@ const App = () => {
               <PageTransition>
                 <ScrollToTop />
                 <Home />
+                <ScrollToTop />
               </PageTransition>
             }
           />
@@ -76,12 +80,34 @@ const App = () => {
             element={
               <PageTransition>
                 <ScrollToTop />
-                <About condensed={false} />
+                <About />
+                <ScrollToTop />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/services"
+            element={
+              <PageTransition>
+                <ScrollToTop />
+                <Services />
+                <ScrollToTop />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/membership"
+            element={
+              <PageTransition>
+                <ScrollToTop />
+                <Membership />
+                <ScrollToTop />
               </PageTransition>
             }
           />
         </Routes>
       </AnimatePresence>
+      <Footer />
     </>
   );
 };
