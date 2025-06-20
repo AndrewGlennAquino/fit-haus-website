@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { Link } from "react-router-dom";
 
 /**
@@ -24,44 +24,147 @@ const Header = () => {
     animateMiddle: { opacity: 0 },
   };
 
-  return (
-    <header
-      id="header"
-      className="bg-mustard p-default flex justify-between items-center sticky top-0 left-0 right-0 z-1"
-    >
-      <motion.div
-        initial={false}
-        whileHover={{ scale: 1.25 }}
-        whileTap={{ scale: 1.25 }}
-      >
-        <Link to="/">
-          <h1 className="text-4xl flex flex-col justify-center">Fit Haus</h1>
-        </Link>
-      </motion.div>
+  // Animation variants for links
+  const linkVariants = {
+    animate: {
+      backgroundColor: "rgba(0, 0, 0, 1)",
+      color: "var(--color-ghost)",
+      transition: {
+        duration: 0.15,
+      },
+    },
+  };
 
-      <motion.nav
-        id="hamburger-menu"
-        className="w-10 h-10 flex flex-col justify-evenly"
-        whileHover="animateHover"
-        onClick={handleClick}
+  return (
+    <>
+      <header
+        id="header"
+        className="bg-mustard p-default flex justify-between items-center sticky top-0 left-0 right-0 z-1"
       >
         <motion.div
-          animate={clicked ? "animateTop" : null}
-          variants={topBottomBarVariants}
-          className="bar"
-        />
-        <motion.div
-          animate={clicked ? "animateMiddle" : null}
-          variants={middleBarVariants}
-          className="bar"
-        />
-        <motion.div
-          animate={clicked ? "animateBottom" : null}
-          variants={topBottomBarVariants}
-          className="bar"
-        />
-      </motion.nav>
-    </header>
+          initial={false}
+          whileHover={{ scale: 1.25 }}
+          whileTap={{ scale: 1.25 }}
+        >
+          <Link to="/">
+            <h1 className="text-4xl flex flex-col justify-center">Fit Haus</h1>
+          </Link>
+        </motion.div>
+
+        <motion.nav
+          id="hamburger-menu"
+          className="w-10 h-10 flex flex-col justify-evenly"
+          whileHover="animateHover"
+          onClick={handleClick}
+        >
+          <motion.div
+            animate={clicked ? "animateTop" : null}
+            variants={topBottomBarVariants}
+            className="bar"
+          />
+          <motion.div
+            animate={clicked ? "animateMiddle" : null}
+            variants={middleBarVariants}
+            className="bar"
+          />
+          <motion.div
+            animate={clicked ? "animateBottom" : null}
+            variants={topBottomBarVariants}
+            className="bar"
+          />
+        </motion.nav>
+      </header>
+
+      <AnimatePresence>
+        <motion.aside
+          id="links"
+          className="bg-mustard text-black font-bold w-3xs h-full p-default fixed z-10 right-0"
+          initial={{
+            x: 300,
+            opacity: 0,
+          }}
+          animate={
+            clicked
+              ? {
+                  x: 0,
+                  opacity: 1,
+                }
+              : null
+          }
+          exit={{
+            opacity: 0,
+          }}
+          transition={{
+            ease: "easeInOut",
+          }}
+        >
+          <ul className="flex flex-col items-end gap-12">
+            <Link to="/" className="w-40 text-right" onClick={handleClick}>
+              <motion.li
+                className="link"
+                whileHover="animate"
+                whileTap="animate"
+                variants={linkVariants}
+              >
+                Home
+              </motion.li>
+            </Link>
+            <Link to="/about" className="w-40 text-right" onClick={handleClick}>
+              <motion.li
+                className="link"
+                whileHover="animate"
+                whileTap="animate"
+                variants={linkVariants}
+              >
+                About us
+              </motion.li>
+            </Link>
+            <Link
+              to="/services"
+              className="w-40 text-right"
+              onClick={handleClick}
+            >
+              <motion.li
+                className="link"
+                whileHover="animate"
+                whileTap="animate"
+                variants={linkVariants}
+              >
+                Services
+              </motion.li>
+            </Link>
+            <Link
+              to="/membership"
+              className="w-40 text-right"
+              onClick={handleClick}
+            >
+              <motion.li
+                className="link"
+                whileHover="animate"
+                whileTap="animate"
+                variants={linkVariants}
+              >
+                Membership
+              </motion.li>
+            </Link>
+            <Link
+              to="/location"
+              className="w-40 text-right"
+              onClick={handleClick}
+            >
+              <motion.li
+                className="link"
+                whileHover="animate"
+                whileTap="animate"
+                variants={linkVariants}
+              >
+                Location
+              </motion.li>
+            </Link>
+          </ul>
+        </motion.aside>
+      </AnimatePresence>
+    </>
   );
 };
 
