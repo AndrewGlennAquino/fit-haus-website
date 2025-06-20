@@ -2,6 +2,8 @@ import { motion } from "motion/react";
 import Hero from "../components/Hero";
 import tempHeroVideo from "../assets/videos/temp-hero-video.mp4";
 import { AboutCondensed } from "./About";
+import { ServicesCondensed } from "./Services";
+import { MembershipCondensed } from "./Membership";
 import Location from "./Location";
 
 /**
@@ -17,6 +19,8 @@ const Home = () => {
         height={100}
       />
       <AboutCondensed />
+      <ServicesCondensed />
+      <MembershipCondensed />
       <Location />
     </>
   );
