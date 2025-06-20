@@ -12,7 +12,7 @@
 
 body {
   scroll-behavior: smooth;
-  @apply bg-ghost max-w-dvw;
+  @apply bg-black max-w-dvw;
 }
 
 #root {
