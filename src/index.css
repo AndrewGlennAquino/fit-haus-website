@@ -28,11 +28,11 @@ body {
 
 @layer base {
   h1 {
-    @apply font-staatliches text-5xl;
+    @apply font-staatliches text-4xl;
   }
 
   p {
-    @apply text-xl;
+    @apply text-xl 2xl:text-2xl;
   }
 }
 
@@ -51,5 +51,18 @@ body {
 
   .p-default {
     @apply p-4 lg:px-8 lg:py-4;
+  }
+
+  .h-condensed {
+    @apply min-h-dvh md:min-h-[50dvh];
+  }
+
+  .socials {
+    @apply bg-black w-10 h-10 rounded-full flex justify-center items-center;
+  }
+
+  .link {
+    box-shadow: -0.5rem 0 black;
+    @apply bg-mustard border-3 border-black text-xl p-1;
   }
 }
