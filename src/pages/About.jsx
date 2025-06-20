@@ -14,7 +14,7 @@ export const AboutCondensed = () => {
    * isInView is true if component is in viewprt, otherwise false
    * store value in ref
    */
-  const isInView = useInView(ref, { amount: 0.5 });
+  const isInView = useInView(ref, { once: true });
 
   // Animation variants for container
   const containerVariants = {
@@ -41,21 +41,33 @@ export const AboutCondensed = () => {
   };
 
   return (
-    
-    <section id="about" ref={ref} className="p-default">
+    <section id="about" ref={ref}>
       <motion.div
-        className="min-h-[50dvh] flex flex-col justify-center gap-8"
+        className="bg-black/50 h-condensed p-default relative flex flex-col justify-center gap-8 overflow-hidden"
         initial="initial"
         animate={isInView ? "animate" : null}
         variants={containerVariants}
       >
-        <motion.h1 variants={textVariants}>About us</motion.h1>
+        <motion.div 
+          className="absolute inset-0 -z-1 w-dvw h-full"
+          variants={textVariants}  
+        >
+          <motion.img
+            src={tempHeroImage}
+            className="w-full h-full absolute inset-0 -z-1 object-cover"
+          />
+        </motion.div>
 
-        <motion.p variants={textVariants}>
+        <motion.h1 className="text-ghost" variants={textVariants}>About us</motion.h1>
+
+        <motion.p className="text-ghost" variants={textVariants}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias,
           quam ipsam dolores reprehenderit quaerat iure ab vitae enim facilis
           sint nihil sit perspiciatis nulla ullam dignissimos eveniet sed a
-          cupiditate.
+          cupiditate. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Molestias, quam ipsam dolores reprehenderit quaerat iure ab vitae enim
+          facilis sint nihil sit perspiciatis nulla ullam dignissimos eveniet
+          sed a cupiditate.
         </motion.p>
 
         <motion.div variants={textVariants}>
@@ -118,7 +130,10 @@ const About = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias,
             quam ipsam dolores reprehenderit quaerat iure ab vitae enim facilis
             sint nihil sit perspiciatis nulla ullam dignissimos eveniet sed a
-            cupiditate.
+            cupiditate. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Molestias, quam ipsam dolores reprehenderit quaerat iure ab vitae
+            enim facilis sint nihil sit perspiciatis nulla ullam dignissimos
+            eveniet sed a cupiditate.
           </motion.p>
         </motion.div>
       </section>
