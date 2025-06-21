@@ -21,20 +21,20 @@ export const MembershipCondensed = () => {
     initial: {},
     animate: {
       transition: {
-        delayChildren: 0.05,
-        staggerChildren: 0.05,
+        delayChildren: 0.25,
+        staggerChildren: 0.25,
       },
     },
   };
 
   // Animation variants for header and text
   const textVariants = {
-    initial: { opacity: 0, y: 25 },
+    initial: { opacity: 0, y: 50 },
     animate: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.15,
+        duration: 0.75,
         ease: "easeOut",
       },
     },
@@ -58,7 +58,9 @@ export const MembershipCondensed = () => {
           />
         </motion.div>
 
-        <motion.h1 className="text-ghost" variants={textVariants}>Membership</motion.h1>
+        <motion.h1 className="text-ghost" variants={textVariants}>
+          Membership
+        </motion.h1>
 
         <motion.p className="text-ghost" variants={textVariants}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias,
@@ -88,27 +90,27 @@ const Membership = () => {
    * isInView is true if component is in viewprt, otherwise false
    * store value in ref
    */
-  const isInView = useInView(ref, { amount: 0.5 });
+  const isInView = useInView(ref, { once: true });
 
   // Animation variants for container
   const containerVariants = {
     initial: {},
     animate: {
       transition: {
-        delayChildren: 0.05,
-        staggerChildren: 0.05,
+        delayChildren: 0.25,
+        staggerChildren: 0.25,
       },
     },
   };
 
   // Animation variants for header and text
   const textVariants = {
-    initial: { opacity: 0, y: 25 },
+    initial: { opacity: 0, y: 50 },
     animate: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.15,
+        duration: 0.75,
         ease: "easeOut",
       },
     },
@@ -119,7 +121,7 @@ const Membership = () => {
       <Hero video={false} src={tempHeroImage} stringArray={["Join", "Us"]} />
       <section id="membership" ref={ref} className="bg-ghost p-default">
         <motion.div
-          className="min-h-[50dvh] flex flex-col justify-center gap-8"
+          className="min-h-[50vh] flex flex-col justify-center gap-8"
           initial="initial"
           animate={isInView ? "animate" : null}
           variants={containerVariants}
