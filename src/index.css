@@ -54,11 +54,11 @@ body {
   }
 
   .h-condensed {
-    @apply min-h-dvh md:min-h-[50dvh];
+    @apply min-h-screen md:min-h-[50vh];
   }
 
   .socials {
-    @apply bg-black w-10 h-10 rounded-full flex justify-center items-center;
+    @apply bg-black w-9 h-9 rounded-full flex justify-center items-center;
   }
 
   .link {
