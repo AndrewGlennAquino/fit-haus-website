@@ -6,6 +6,7 @@ import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
 import Services from "./pages/Services.jsx";
 import Membership from "./pages/Membership.jsx";
+import Location from "./pages/Location.jsx";
 import Footer from "./components/Footer.jsx";
 
 /**
@@ -29,7 +30,7 @@ const PageTransition = ({ children }) => {
     <>
       {children}
       <motion.div
-        className="bg-black w-dvw h-dvh fixed z-10 top-0 bottom-0 overflowX-hidden"
+        className="bg-black w-dvw h-screen fixed z-10 top-0 bottom-0 overflowX-hidden"
         initial={{ X: 0 }}
         animate={{ x: "100dvw" }}
         exit={{ x: "100dvw" }}
@@ -40,7 +41,7 @@ const PageTransition = ({ children }) => {
         }}
       />
       <motion.div
-        className="bg-black w-dvw h-dvh fixed z-10 top-0 bottom-0"
+        className="bg-black w-dvw h-screen fixed z-10 top-0 bottom-0"
         initial={{ x: "-100dvw" }}
         animate={{ x: "-100dvw" }}
         exit={{ x: 0 }}
@@ -101,6 +102,16 @@ const App = () => {
               <PageTransition>
                 <ScrollToTop />
                 <Membership />
+                <ScrollToTop />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/fit-haus-website/location"
+            element={
+              <PageTransition>
+                <ScrollToTop />
+                <Location />
                 <ScrollToTop />
               </PageTransition>
             }
