@@ -12,7 +12,7 @@ git clone https://github.com/AndrewGlennAquino/fit-haus-website.git
 cd fit-haus-website
 ```
 
-**2. Install Dependencies**
+**2. Install Dependencies** <br/>
 Ensure you have [Node.js](https://nodejs.org/) installed, then install the project dependencies using:
 ```
 npm install
