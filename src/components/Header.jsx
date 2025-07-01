@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import {
+  motion,
+  useScroll,
+  useMotionValueEvent,
+  AnimatePresence,
+} from "motion/react";
 import { Link } from "react-router-dom";
 
 /**
@@ -7,6 +12,20 @@ import { Link } from "react-router-dom";
  */
 const Header = () => {
   const [clicked, setClicked] = useState(false); // Store if user clicked in state
+
+  // Motion hook that tracks the absolute Y scroll position and returns a MotionValue object
+  const { scrollY } = useScroll();
+
+  const [scrolled, setScrolled] = useState(false);
+
+  /**
+   * Motion hook that extracts the value from the scrollY MotionValue object when it changes.
+   * Use the latest value to track if a user scrolls down from the top of the page, and change
+   * the header background if the user is at the very top of the page or scrolled past the top.
+   */
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    latest > 0 ? setScrolled(true) : setScrolled(false);
+  });
 
   // Function that handles click
   const handleClick = () => {
@@ -39,7 +58,7 @@ const Header = () => {
     <>
       <header
         id="header"
-        className="bg-mustard p-default flex justify-between items-center sticky top-0 left-0 right-0 z-1"
+        className="bg-black/25 p-default flex justify-between items-center fixed top-0 left-0 right-0 z-1"
       >
         <motion.div
           initial={false}
@@ -47,7 +66,9 @@ const Header = () => {
           whileTap={{ scale: 1.25 }}
         >
           <Link to="/fit-haus-website/">
-            <h1 className="text-4xl flex flex-col justify-center">Fit Haus</h1>
+            <motion.h1 className="text-mustard text-4xl flex flex-col justify-center">
+              Fit Haus
+            </motion.h1>
           </Link>
         </motion.div>
 
@@ -78,7 +99,7 @@ const Header = () => {
       <AnimatePresence>
         <motion.aside
           id="links"
-          className="bg-mustard text-black font-bold w-3xs h-full p-default fixed z-10 right-0"
+          className="bg-black/25 text-black font-bold w-3xs h-full p-default fixed z-10 top-[4.5rem] right-0"
           initial={{
             x: 300,
             opacity: 0,
@@ -99,7 +120,11 @@ const Header = () => {
           }}
         >
           <ul className="flex flex-col items-end gap-12">
-            <Link to="/fit-haus-website/" className="w-40 text-right" onClick={handleClick}>
+            <Link
+              to="/fit-haus-website/"
+              className="w-40 text-right"
+              onClick={handleClick}
+            >
               <motion.li
                 className="link"
                 whileHover="animate"
@@ -109,7 +134,11 @@ const Header = () => {
                 Home
               </motion.li>
             </Link>
-            <Link to="/fit-haus-website/about" className="w-40 text-right" onClick={handleClick}>
+            <Link
+              to="/fit-haus-website/about"
+              className="w-40 text-right"
+              onClick={handleClick}
+            >
               <motion.li
                 className="link"
                 whileHover="animate"
